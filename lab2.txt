@@ -22,3 +22,14 @@ Trang chủ: https://expressjs.com/
 
 Django (Python):
 Trang chủ: https://www.djangoproject.com/
+2.3 Có 3 cách để tạo ra một ứng dụng web? Phát biểu nào không đúng?
+D. Sử dụng trình duyệt web
+
+2.4 Những ưu điểm khi sử dụng CMS để tạo ra ứng dụng web. Phát biểu nào không đúng?
+
+A. Cần kiến thức lập trình chuyên sâu
+
+2.5 Những ưu điểm khi sử dụng framework và thư viện để tạo ra ứng dụng web. Phát biểu nào không đúng?
+
+C. Giảm khả năng bảo mật
+
