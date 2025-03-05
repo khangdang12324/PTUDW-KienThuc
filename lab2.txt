@@ -1,0 +1,24 @@
+Bài tập 2.1 Tìm trang (web) chủ của các CMS trong lĩnh vực phát triển ứng dụng web.
+1. Thương mại điện tử/bán hàng
+WooCommerce:
+Trang chủ: https://woocommerce.com/
+(Plugin thương mại điện tử cho WordPress)
+BigCommerce:
+Trang chủ: https://www.bigcommerce.com/
+
+Squarespace:
+Trang chủ: https://www.squarespace.com/
+Bài tập 2.2 Tìm các trang (web) chủ của các framework và thư viện hỗ trợ trong việc phát triển ứng dụng web.
+1. Frontend
+jQuery:
+Trang chủ: https://jquery.com/
+
+Bootstrap:
+Trang chủ: https://getbootstrap.com/
+
+2. Backend
+Express.js (Node.js):
+Trang chủ: https://expressjs.com/
+
+Django (Python):
+Trang chủ: https://www.djangoproject.com/
