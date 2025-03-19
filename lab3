@@ -1,0 +1,84 @@
+
+C:\Users\PC602\nginx-1.24.0\nginx-1.24.0>nginx -s reload
+nginx: [emerg] invalid port in "65536" of the "listen" directive in C:\Users\PC602\nginx-1.24.0\nginx-1.24.0/conf/nginx.conf:36
+Để thực hiện các yêu cầu cấu hình cho Nginx trong bài tập, dưới đây là hướng dẫn từng bước.
+
+### (a) Lắng nghe trên cổng 65535
+Để cấu hình Nginx lắng nghe trên cổng 65535, bạn cần thay đổi file cấu hình của Nginx (`nginx.conf`).
+
+1. Mở file cấu hình Nginx (`nginx.conf`), thường nằm trong thư mục cài đặt Nginx (ví dụ: `C:\nginx\conf\nginx.conf`).
+2. Tìm phần cấu hình `server` và thay đổi cổng trong chỉ thị `listen`:
+   
+   ```nginx
+   server {
+       listen 65535;
+       server_name localhost;
+   
+       location / {
+           root   html;
+           index  index.html index.htm;
+       }
+   }
+   ```
+
+   Cấu hình này sẽ khiến Nginx lắng nghe trên cổng 65535.
+
+### (b) Trỏ web root về một thư mục khác ổ đĩa C:\ (ví dụ: D:\TeoShop)
+Để thay đổi thư mục web root, bạn cần chỉnh sửa đường dẫn thư mục trong file cấu hình của Nginx.
+
+1. Mở lại file `nginx.conf` và tìm phần cấu hình `location`:
+   
+   ```nginx
+   server {
+       listen 65535;
+       server_name localhost;
+   
+       location / {
+           root   D:/TeoShop;  # Thay đổi đường dẫn tới thư mục bạn muốn
+           index  index.html index.htm;
+       }
+   }
+   ```
+
+   Đảm bảo rằng đường dẫn đến thư mục `D:/TeoShop` là đúng và thư mục này có quyền truy cập từ Nginx.
+
+### (c) Khi client gửi request tới web root, tập tin mặc định trả về là `index.py`, tạo thêm tập tin `index.py` để kiểm tra.
+Để Nginx trả về file `index.py` thay vì các file mặc định như `index.html`, bạn cần thay đổi chỉ thị `index` trong file cấu hình.
+
+1. Mở lại file `nginx.conf` và thay đổi cấu hình của `location /`:
+   
+   ```nginx
+   server {
+       listen 65535;
+       server_name localhost;
+   
+       location / {
+           root   D:/TeoShop;
+           index  index.py index.html index.htm;
+       }
+   }
+   ```
+
+2. Sau đó, tạo một file `index.py` trong thư mục `D:/TeoShop`, ví dụ:
+   
+   ```python
+   # index.py
+   print("Content-Type: text/html\n")
+   print("<html><body><h1>Welcome to TeoShop!</h1></body></html>")
+   ```
+
+   Đây là một ví dụ đơn giản của file `index.py` trả về nội dung HTML khi truy cập.
+
+### (d) Lắng nghe trên cổng 65536 được không? Tại sao?
+Không thể lắng nghe trên cổng 65536 vì cổng mạng chỉ có thể nằm trong phạm vi từ **0 đến 65535**. Cổng 65536 vượt quá giới hạn này, do đó sẽ không thể sử dụng cổng này.
+
+Cổng mạng có giá trị từ 0 đến 65535, trong đó:
+- Cổng từ 0 đến 1023 là các cổng hệ thống (được gọi là "well-known ports").
+- Cổng từ 1024 đến 49151 là các cổng đăng ký (registered ports).
+- Cổng từ 49152 đến 65535 là các cổng động hoặc tư nhân (dynamic/private ports).
+
+### Tóm tắt
+1. Lắng nghe trên cổng 65535 là hợp lệ trong cấu hình Nginx.
+2. Thay đổi thư mục root về `D:/TeoShop` bằng cách cập nhật cấu hình Nginx.
+3. Cập nhật chỉ thị `index` để trả về `index.py` thay vì các file mặc định như `index.html`.
+4. Không thể lắng nghe trên cổng 65536 vì cổng phải nằm trong phạm vi từ 0 đến 65535.
